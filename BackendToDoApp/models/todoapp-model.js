@@ -25,6 +25,7 @@ const todoappModel = {
             connection.end();
         })
     },
+
     getTaskData: function (id) {
         let data;
         const connection = mysql.createConnection(connectionInfo);
@@ -41,8 +42,6 @@ const todoappModel = {
             connection.end();
         })
     },
-
-
 
     postData: function (data) {
         const connection = mysql.createConnection(connectionInfo);
@@ -78,12 +77,24 @@ const todoappModel = {
         connection.query(`DELETE FROM tareas
         WHERE user_id = ${id};`, function (err, rows, fields) {
             if (err) throw new Error('Error al conectar a BBDD', err);
-            // console.log('Datos borrados');
+            console.log('Datos actualizados');
         });
 
         connection.end();
-        return;
-    }
+    },
+
+    updateTask: function (id) {
+        const connection = mysql.createConnection(connectionInfo);
+        connection.connect();
+        // console.log('Datos guardados', data);
+        connection.query(`UPDATE tareas SET completed = NOT completed
+        WHERE user_id = ${id};`, function (err, rows, fields) {
+            if (err) throw new Error('Error al conectar a BBDD', err);
+            // console.log('Datos guardados', data);
+        });
+
+        connection.end();
+    },
 };
 
 module.exports = todoappModel;

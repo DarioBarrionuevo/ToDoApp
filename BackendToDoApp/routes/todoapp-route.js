@@ -19,4 +19,8 @@ router.delete('/deleteAll', todoappController.deleteData);
 // DELETE data
 router.delete('/delete/:id', todoappController.deleteTask);
 
+// UPDATE data
+router.put('/update/:id', todoappController.updateTask);
+
+
 module.exports = router;

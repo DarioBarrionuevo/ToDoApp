@@ -36,6 +36,13 @@ module.exports = {
         res.send('¡Borrada una tarea!');
     },
 
+
+    updateTask: function (req, res) {
+        const itemToDelete = req.params.id;
+        todoappModel.updateTask(itemToDelete);
+        res.send('Actualizada una tarea!');
+
+    },
     // toUpperCase: function (req, res) {
     //     const upper = req.param.id.toUpperCase();
     //     res.send(upper);

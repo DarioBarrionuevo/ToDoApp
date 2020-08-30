@@ -23,7 +23,8 @@ function printTasks() {
 
 function addTaskBBDD() {
     var tarea = {
-        valor: input.value
+        valor: input.value,
+        completed: false
     };
     // var tarea = input.value;
     console.log(tarea);
