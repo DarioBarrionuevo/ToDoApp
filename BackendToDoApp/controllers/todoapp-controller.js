@@ -4,8 +4,8 @@ module.exports = {
     getData: function (req, res) {
         todoappModel.getData()
             .then((result) => {
-                // console.log('desde el controller', result);
-                res.send(result);
+                // console.log('XX desde el controller', result);
+                res.json(result);
             })
             .catch(err => console.log(err));
     },
